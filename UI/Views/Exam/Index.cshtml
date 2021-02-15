@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Exam>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sinavlar</h1>
+<a class="btn btn-primary mb-3" asp-action="Create">Sinav ekle</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th>Exam1</th>
+            <th>Exam2</th>
+            <th>Exam3</th>
+            <th>Project</th>
+            <th>Avarege</th>
+            <th>Course Name</th>
+            <th>Student Name</th>
+            <th>Status</th>
+            <th>Islemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+
+            <td>@item.Exam1</td>
+            <td>@item.Exam2</td>
+            <td>@item.Exam3</td>
+            <td>@item.Project</td>
+            <td>@item.Avarege</td>
+            <td>@item.Course.Name</td>
+            <td>@item.Student.Name</td>
+            <td>@item.Status</td>
+            <td>
+
+                <a asp-action="Update" asp-route-id="@item.Id">Güncelle</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

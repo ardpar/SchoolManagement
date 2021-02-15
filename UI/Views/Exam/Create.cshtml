@@ -1,0 +1,64 @@
+﻿@model Exam
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sinav Ekleme</h1>
+<div class="row">
+
+    <div class="col-md-4">
+
+        <form asp-action="Create">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="Exam1">Sinav1 </label>
+                <input asp-for="Exam1" class="form-control" />
+                <span asp-validation-for="Exam1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exam2">Sinav2 </label>
+                <input asp-for="Exam2" class="form-control" />
+                <span asp-validation-for="Exam2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exam3">Sinav3 </label>
+                <input asp-for="Exam3" class="form-control" />
+                <span asp-validation-for="Exam3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project">Proje </label>
+                <input asp-for="Project" class="form-control" />
+                <span asp-validation-for="Project" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Avarege">Ortalama </label>
+                <input asp-for="Avarege" class="form-control" />
+                <span asp-validation-for="Avarege" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status">Durum </label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                @Html.DropDownListFor(m => m.StudentId, (IEnumerable<SelectListItem>)ViewBag.Student)
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                @Html.DropDownListFor(m => m.CourseId, (IEnumerable<SelectListItem>)ViewBag.Course)
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
